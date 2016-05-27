@@ -1,8 +1,16 @@
+var webpack = require('webpack');
+var path = require('path');
 module.exports = {
-  entry: {
-    javascript: "./app/js/app.js",
-    html: "./app/index.html"
-  },
+ // entry: {
+ //   javascript: "./app/js/app.js",
+ //   html: "./app/index.html"
+ // }
+  entry: [
+  //path.resolve("../app/index.html"),
+   'webpack-dev-server/client?http://0.0.0.0:3001',
+   'webpack/hot/only-dev-server',
+   path.resolve("../app/js/app.js")
+  ],
   output: {
     path: __dirname + "/dist",
     filename: "./js/app.js"
@@ -30,6 +38,10 @@ module.exports = {
           }
         )]
       }
+    ],
+    plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin()
     ]
   }
 };
