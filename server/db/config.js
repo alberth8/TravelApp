@@ -1,16 +1,18 @@
-var path = require('path');
 var knex = require('knex')({
   client: 'mysql',
   connection: {
     host     : '127.0.0.1',
     user     : 'root',
-    password : 'onepiece14',
-    database : 'test1',
+    password : '123',
+    database : 'travel',
     charset  : 'utf8'
   }
 });
+
+// Create connection
 var db = require('bookshelf')(knex);
 
+// Define schema below. Relationships described in models.
 db.knex.schema.hasTable('users').then(function(exists) {
   if (!exists) {
     db.knex.schema.createTable('users', function (user) {
@@ -49,4 +51,6 @@ db.knex.schema.hasTable('stops').then(function(exists) {
     });
   }
 });
+
 module.exports = db;
+// usage in other files: var db = require('./path/to/db')

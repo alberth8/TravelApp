@@ -1,5 +1,5 @@
 var Promise = require('bluebird');
-var db = require('../config');
+var db = require('../db/config');
 var Stop = require('./stops');
 var User = require('./user');
 

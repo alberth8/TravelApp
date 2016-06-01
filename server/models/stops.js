@@ -1,6 +1,6 @@
 var Promise = require('bluebird');
 var Trip = require('./trips');
-var db = require('../config');
+var db = require('../db/config');
 
 var Stop = db.Model.extend({
 
